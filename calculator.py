@@ -7,8 +7,6 @@ calculator program yourself in this file.
 
 from arithmetic import *
 
-
-# Your code goes here
 while True:
     input = raw_input()
     tokens = input.split(" ")
@@ -16,7 +14,10 @@ while True:
     if tokens[0] == 'q':
         break
     elif tokens[0] == '+':
-        print add(float (tokens[1]), float (tokens[2]))
+        current_sum = 0
+        for num in tokens[1:]:
+            current_sum = add(current_sum, float(num))
+        print current_sum
     elif tokens[0] == '-':
         print subtract(float (tokens[1]), float (tokens[2]))
     elif tokens[0] == '*':
